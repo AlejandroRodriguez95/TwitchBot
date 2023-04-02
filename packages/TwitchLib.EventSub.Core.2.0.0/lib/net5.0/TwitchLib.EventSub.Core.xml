@@ -1,0 +1,1707 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TwitchLib.EventSub.Core</name>
+    </assembly>
+    <members>
+        <member name="T:TwitchLib.EventSub.Core.Models.ChannelGoals.ChannelGoalBase">
+            <summary>
+            Channel Goal base class
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.ChannelGoals.ChannelGoalBase.Id">
+            <summary>
+            An ID that identifies this event.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.ChannelGoals.ChannelGoalBase.BroadcasterUserId">
+            <summary>
+            An ID that uniquely identifies the broadcaster.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.ChannelGoals.ChannelGoalBase.BroadcasterUserName">
+            <summary>
+            The broadcaster’s display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.ChannelGoals.ChannelGoalBase.BroadcasterUserLogin">
+            <summary>
+            The broadcaster’s user handle.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.ChannelGoals.ChannelGoalBase.Type">
+            <summary>
+            The type of goal. Possible values are: followers, subscriptions
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.ChannelGoals.ChannelGoalBase.Description">
+            <summary>
+            A description of the goal, if specified. The description may contain a maximum of 40 characters.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.ChannelGoals.ChannelGoalBase.CurrentAmount">
+            <summary>
+            The current value.
+            <para>If the goal is to increase followers, this field is set to the current number of followers.</para>
+            <para>This number increases with new followers and decreases if users unfollow the channel.</para>
+            <para>For subscriptions, CurrentAmount is increased and decreased by the points value associated with the subscription tier. </para>
+            <para>For example, if a tier-two subscription is worth 2 points, CurrentAmount is increased or decreased by 2, not 1.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.ChannelGoals.ChannelGoalBase.TargetAmount">
+            <summary>
+            The goal’s target value.
+            <para>For example, if the broadcaster has 200 followers before creating the goal,</para>
+            <para>and their goal is to double that number, this field is set to 400.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.ChannelGoals.ChannelGoalBase.StartedAt">
+            <summary>
+            The UTC timestamp in RFC 3339 format, which indicates when the broadcaster created the goal.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.Models.ChannelPoints.GlobalCooldownSettings">
+            <summary>
+            Whether a cooldown is enabled and what the cooldown is in seconds.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.ChannelPoints.GlobalCooldownSettings.IsEnabled">
+            <summary>
+            Whether the setting is enabled.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.ChannelPoints.GlobalCooldownSettings.Seconds">
+            <summary>
+            The cooldown in seconds.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.Models.ChannelPoints.MaxAmountSettings">
+            <summary>
+            Whether a maximum per stream is enabled and what the maximum is.
+            <para>or</para>
+            <para>Whether a maximum per user per stream is enabled and what the maximum is.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.ChannelPoints.MaxAmountSettings.IsEnabled">
+            <summary>
+            Whether the setting is enabled.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.ChannelPoints.MaxAmountSettings.Value">
+            <summary>
+            The max amount per stream/per user per stream
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.Models.ChannelPoints.RedemptionReward">
+            <summary>
+            Basic information about the reward that was redeemed, at the time it was redeemed.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.ChannelPoints.RedemptionReward.Id">
+            <summary>
+            The reward identifier.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.ChannelPoints.RedemptionReward.Title">
+            <summary>
+            The reward name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.ChannelPoints.RedemptionReward.Cost">
+            <summary>
+            The reward cost.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.ChannelPoints.RedemptionReward.Prompt">
+            <summary>
+            The reward description.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.Models.Charity.CharityAmount">
+            <summary>
+            An object that contains the amount of charity related things.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Charity.CharityAmount.Value">
+            <summary>
+            The monetary amount. The amount is specified in the currency’s minor unit. For example, the minor units for USD is cents, so if the amount is $5.50 USD, value is set to 550.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Charity.CharityAmount.DecimalPlaces">
+            <summary>
+            The number of decimal places used by the currency. For example, USD uses two decimal places. Use this number to translate value from minor units to major units by using the formula:
+            <para>value / 10^decimal_places</para>
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.Models.Extensions.BitsProduct">
+            <summary>
+            Additional information about a product acquired via a Twitch Extension Bits transaction.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Extensions.BitsProduct.Name">
+            <summary>
+            Product name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Extensions.BitsProduct.Sku">
+            <summary>
+            Unique identifier for the product acquired.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Extensions.BitsProduct.Bits">
+            <summary>
+            Bits involved in the transaction.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Extensions.BitsProduct.InDevelopment">
+            <summary>
+            Flag indicating if the product is in development. If in_development is true, bits will be 0.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.Models.HypeTrain.HypeTrainBase">
+            <summary>
+            HypeTrain base class
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.HypeTrain.HypeTrainBase.BroadcasterUserId">
+            <summary>
+            The requested broadcaster ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.HypeTrain.HypeTrainBase.BroadcasterUserName">
+            <summary>
+            The requested broadcaster display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.HypeTrain.HypeTrainBase.BroadcasterUserLogin">
+            <summary>
+            The requested broadcaster login.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.HypeTrain.HypeTrainBase.Total">
+            <summary>
+            Total points contributed to the Hype Train.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.HypeTrain.HypeTrainBase.TopContributions">
+            <summary>
+            The contributors with the most points contributed.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.HypeTrain.HypeTrainBase.StartedAt">
+            <summary>
+            The time when the Hype Train started.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.HypeTrain.HypeTrainBase.Level">
+            <summary>
+            The current level of the Hype Train.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.Models.HypeTrain.HypeTrainContribution">
+            <summary>
+            Describes a user's contribution to a HypeTrain
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.HypeTrain.HypeTrainContribution.UserId">
+            <summary>
+            The ID of the contributor.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.HypeTrain.HypeTrainContribution.UserName">
+            <summary>
+            The display name of the contributor.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.HypeTrain.HypeTrainContribution.UserLogin">
+            <summary>
+            The login of the contributor.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.HypeTrain.HypeTrainContribution.Type">
+            <summary>
+            Type of contribution. Valid values include bits, subscription.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.HypeTrain.HypeTrainContribution.Total">
+            <summary>
+            The total contributed.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.Models.Polls.ChannelPollBase">
+            <summary>
+            Defines the Channel Poll base class
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Polls.ChannelPollBase.Id">
+            <summary>
+            ID of the poll.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Polls.ChannelPollBase.BroadcasterUserId">
+            <summary>
+            The requested broadcaster ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Polls.ChannelPollBase.BroadcasterUserLogin">
+            <summary>
+            The requested broadcaster login.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Polls.ChannelPollBase.BroadcasterUserName">
+            <summary>
+            The requested broadcaster display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Polls.ChannelPollBase.Title">
+            <summary>
+            Question displayed for the poll.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Polls.ChannelPollBase.Choices">
+            <summary>
+            An array of choices for the poll. May Include vote counts.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Polls.ChannelPollBase.BitsVoting">
+            <summary>
+            The Bits voting settings for the poll.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Polls.ChannelPollBase.ChannelPointsVoting">
+            <summary>
+            The Channel Points voting settings for the poll.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Polls.ChannelPollBase.StartedAt">
+            <summary>
+            The time the poll started.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.Models.Polls.PollChoice">
+            <summary>
+            Defines a poll choice
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Polls.PollChoice.Id">
+            <summary>
+            ID for the choice.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Polls.PollChoice.Title">
+            <summary>
+            Text displayed for the choice.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Polls.PollChoice.BitsVotes">
+            <summary>
+            Number of votes received via Bits.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Polls.PollChoice.ChannelPointsVotes">
+            <summary>
+            Number of votes received via Channel Points.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Polls.PollChoice.Votes">
+            <summary>
+            Total number of votes received for the choice across all methods of voting.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.Models.Polls.PollVotingSettings">
+            <summary>
+            Whether Bits/ChannelPoints voting is enabled and its cost
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Polls.PollVotingSettings.IsEnabled">
+            <summary>
+            Indicates if Bits/Channel Points can be used for voting.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Polls.PollVotingSettings.AmountPerVote">
+            <summary>
+            Number of Bits/Channel Points required to vote once with Bits/Channel Points.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.Models.Predictions.ChannelPredictionBase">
+            <summary>
+            Channel Prediction base class
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Predictions.ChannelPredictionBase.Id">
+            <summary>
+            Channel Points Prediction ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Predictions.ChannelPredictionBase.BroadcasterUserId">
+            <summary>
+            The requested broadcaster ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Predictions.ChannelPredictionBase.BroadcasterUserLogin">
+            <summary>
+            The requested broadcaster login.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Predictions.ChannelPredictionBase.BroadcasterUserName">
+            <summary>
+            The requested broadcaster display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Predictions.ChannelPredictionBase.Title">
+            <summary>
+            Title for the Channel Points Prediction.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Predictions.ChannelPredictionBase.Outcomes">
+            <summary>
+            An array of outcomes for the Channel Points Prediction. May include top_predictors.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Predictions.ChannelPredictionBase.StartedAt">
+            <summary>
+            The time the Channel Points Prediction started.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.Models.Predictions.PredictionOutcomes">
+            <summary>
+            Defines the outcomes of a prediction
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Predictions.PredictionOutcomes.Id">
+            <summary>
+            The outcome ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Predictions.PredictionOutcomes.Title">
+            <summary>
+            The outcome title.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Predictions.PredictionOutcomes.Color">
+            <summary>
+            The color for the outcome. Valid values are pink and blue.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Predictions.PredictionOutcomes.Users">
+            <summary>
+            The number of users who used Channel Points on this outcome.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Predictions.PredictionOutcomes.ChannelPoints">
+            <summary>
+            The total number of Channel Points used on this outcome.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Predictions.PredictionOutcomes.TopPredictors">
+            <summary>
+            An array of users who used the most Channel Points on this outcome.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.Models.Predictions.Predictor">
+            <summary>
+            Defines a user that predicted in a prediction
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Predictions.Predictor.UserId">
+            <summary>
+            The ID of the user.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Predictions.Predictor.UserLogin">
+            <summary>
+            The login of the user.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Predictions.Predictor.UserName">
+            <summary>
+            The display name of the user.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Predictions.Predictor.ChannelPointsWon">
+            <summary>
+            The number of Channel Points won.
+            <para>This value is always null in the event payload for Prediction progress and Prediction lock.</para>
+            <para>This value is 0 if the outcome did not win or if the Prediction was canceled and Channel Points were refunded.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Predictions.Predictor.ChannelPointsUsed">
+            <summary>
+            The number of Channel Points used to participate in the Prediction.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.Models.Subscriptions.SubscriptionMessage">
+            <summary>
+            Defines a subscription message send in chat to share a resubscription
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Subscriptions.SubscriptionMessage.Text">
+            <summary>
+            The text of the resubscription chat message.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Subscriptions.SubscriptionMessage.Emotes">
+            <summary>
+            An array that includes the emote ID and start and end positions for where the emote appears in the text.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.Models.Subscriptions.SubscriptionMessageEmote">
+            <summary>
+            Defines Emotes and their positions in a resubscription chat message
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Subscriptions.SubscriptionMessageEmote.Begin">
+            <summary>
+            The index of where the Emote starts in the text.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Subscriptions.SubscriptionMessageEmote.End">
+            <summary>
+            The index of where the Emote ends in the text.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.Models.Subscriptions.SubscriptionMessageEmote.Id">
+            <summary>
+            The emote ID.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelBan">
+            <summary>
+            Channel Ban subscription type model
+            <para>Description:</para>
+            <para>A viewer is banned/timed out from the specified channel.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelBan.UserId">
+            <summary>
+            The user ID for the user who was banned/timed out on the specified channel.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelBan.UserName">
+            <summary>
+            The user display name for the user who was banned/timed out on the specified channel.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelBan.UserLogin">
+            <summary>
+            The user login for the user who was banned/timed out on the specified channel.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelBan.BroadcasterUserId">
+            <summary>
+            The requested broadcaster ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelBan.BroadcasterUserName">
+            <summary>
+            The requested broadcaster display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelBan.BroadcasterUserLogin">
+            <summary>
+            The requested broadcaster login.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelBan.ModeratorUserId">
+            <summary>
+            The user ID of the issuer of the ban/timeout.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelBan.ModeratorUserName">
+            <summary>
+            The user name of the issuer of the ban/timeout.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelBan.ModeratorUserLogin">
+            <summary>
+            The user login of the issuer of the ban/timeout.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelBan.Reason">
+            <summary>
+            The reason behind the ban.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelBan.BannedAt">
+            <summary>
+            The UTC date and time (in RFC3339 format) of when the user was banned or put in a timeout.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelBan.EndsAt">
+            <summary>
+            The UTC date and time (in RFC3339 format) of when the timeout ends. Is null if the user was banned instead of put in a timeout.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelBan.IsPermanent">
+            <summary>
+            Indicates whether the ban is permanent (true) or a timeout (false). If true, EndsAt will be null.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCharityCampaignDonate">
+            <summary>
+            Charity Campaign Donate subscription type model
+            <para>Description:</para>
+            <para>Sends an event notification when a user donates to the broadcaster’s charity campaign.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCharityCampaignDonate.CampaignId">
+            <summary>
+            An ID that uniquely identifies the charity campaign.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCharityCampaignDonate.BroadcasterId">
+            <summary>
+            An ID that uniquely identifies the broadcaster that’s running the campaign.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCharityCampaignDonate.BroadcasterLogin">
+            <summary>
+            The broadcaster’s login name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCharityCampaignDonate.BroadcasterName">
+            <summary>
+            The broadcaster’s display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCharityCampaignDonate.UserId">
+            <summary>
+            An ID that uniquely identifies the user that donated to the campaign.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCharityCampaignDonate.UserLogin">
+            <summary>
+            The users’s login name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCharityCampaignDonate.UserName">
+            <summary>
+            The users’s display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCharityCampaignDonate.Amount">
+            <summary>
+            An object that contains the amount of the user’s donation.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCharityCampaignDonate.Currency">
+            <summary>
+            The ISO-4217 three-letter currency code that identifies the type of currency in value.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCheer">
+            <summary>
+            Channel Cheer subscription type model
+            <para>Description:</para>
+            <para>A user cheers on the specified channel.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCheer.IsAnonymous">
+            <summary>
+            Whether the user cheered anonymously or not.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCheer.UserId">
+            <summary>
+            The user ID for the user who cheered on the specified channel. This is null if is_anonymous is true.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCheer.UserName">
+            <summary>
+            The user display name for the user who cheered on the specified channel. This is null if is_anonymous is true.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCheer.UserLogin">
+            <summary>
+            The user login for the user who cheered on the specified channel. This is null if is_anonymous is true.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCheer.BroadcasterUserId">
+            <summary>
+            The requested broadcaster ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCheer.BroadcasterUserName">
+            <summary>
+            The requested broadcaster display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCheer.BroadcasterUserLogin">
+            <summary>
+            The requested broadcaster login.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCheer.Message">
+            <summary>
+            The message sent with the cheer.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelCheer.Bits">
+            <summary>
+            The number of bits cheered.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelFollow">
+            <summary>
+            Channel Follow subscription type model
+            <para>Description:</para>
+            <para>A specified channel receives a follow.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelFollow.UserId">
+            <summary>
+            The user ID for the user now following the specified channel.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelFollow.UserName">
+            <summary>
+            The user display name for the user now following the specified channel.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelFollow.UserLogin">
+            <summary>
+            The user login for the user now following the specified channel.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelFollow.BroadcasterUserId">
+            <summary>
+            The requested broadcaster ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelFollow.BroadcasterUserName">
+            <summary>
+            The requested broadcaster display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelFollow.BroadcasterUserLogin">
+            <summary>
+            The requested broadcaster login.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelFollow.FollowedAt">
+            <summary>
+            RFC3339 timestamp of when the follow occurred.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelGoalBegin">
+            <summary>
+            Channel Goal Begin subscription type model
+            <para>Description:</para>
+            <para>A channel goal is created</para>
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelGoalEnd">
+            <summary>
+            Channel Goal End subscription type model
+            <para>Description:</para>
+            <para>A channel goal ends</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelGoalEnd.EndedAt">
+            <summary>
+            The UTC timestamp in RFC 3339 format, which indicates when the broadcaster ended the goal.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelGoalEnd.IsAchieved">
+            <summary>
+            A Boolean value that indicates whether the broadcaster achieved their goal. Is true if the goal was achieved; otherwise, false.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelGoalProgress">
+            <summary>
+            Channel Goal Progress subscription type model
+            <para>Description:</para>
+            <para>A channel goal progress changes, by either receiving a follow/unfollow or a subscription/unsubscription </para>
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelModerator">
+            <summary>
+            Channel Moderator subscription type model (for Moderator Add and Remove)
+            <para>Description:</para>
+            <para>Moderator privileges were added to/removed from a user on a specified channel.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelModerator.UserId">
+            <summary>
+            The user ID of the new/removed moderator.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelModerator.UserName">
+            <summary>
+            The display name of the new/removed moderator.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelModerator.UserLogin">
+            <summary>
+            The user login of the new/removed moderator.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelModerator.BroadcasterUserId">
+            <summary>
+            The requested broadcaster ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelModerator.BroadcasterUserName">
+            <summary>
+            The requested broadcaster display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelModerator.BroadcasterUserLogin">
+            <summary>
+            The requested broadcaster login.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward">
+            <summary>
+            Channel Points Custom Reward subscription type model
+            <para>!! The same for all channel points subscription types !!</para>
+            <para>Description:</para>
+            <para>A custom channel points reward has been created/updated/removed for the specified channel.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.Id">
+            <summary>
+            The reward identifier.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.BroadcasterUserId">
+            <summary>
+            The requested broadcaster ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.BroadcasterUserName">
+            <summary>
+            The requested broadcaster display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.BroadcasterUserLogin">
+            <summary>
+            The requested broadcaster login.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.IsEnabled">
+            <summary>
+            Whether the reward currently enabled. If false, the reward won’t show up to viewers.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.IsPaused">
+            <summary>
+            Whether the reward currently paused. If true, viewers can’t redeem.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.IsInStock">
+            <summary>
+            Whether the reward currently in stock. If false, viewers can’t redeem.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.Title">
+            <summary>
+            The reward title.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.Cost">
+            <summary>
+            The reward cost.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.Prompt">
+            <summary>
+            The reward description.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.IsUserInputRequired">
+            <summary>
+            Does the viewer need to enter information when redeeming the reward.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.ShouldRedemptionsSkipRequestQueue">
+            <summary>
+            Should redemptions be set to fulfilled status immediately when redeemed and skip the request queue instead of the normal unfulfilled status.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.CooldownExpiresAt">
+            <summary>
+            Timestamp of the cooldown expiration. null if the reward isn’t on cooldown.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.RedemptionsRedeemedCurrentStream">
+            <summary>
+            The number of redemptions redeemed during the current live stream.
+            <para>Counts against the max_per_stream limit. null if the broadcasters stream isn’t live or max_per_stream isn’t enabled.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.MaxPerStream">
+            <summary>
+            Whether a maximum per stream is enabled and what the maximum is.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.MaxPerUserPerStream">
+            <summary>
+            Whether a maximum per user per stream is enabled and what the maximum is.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.GlobalCooldown">
+            <summary>
+            Whether a cooldown is enabled and what the cooldown is in seconds.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.BackgroundColor">
+            <summary>
+            Custom background color for the reward. Format: Hex with # prefix. Example: #FA1ED2.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.Image">
+            <summary>
+            Set of custom images of 1x, 2x and 4x sizes for the reward. Can be null if no images have been uploaded.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomReward.DefaultImage">
+            <summary>
+            Set of default images of 1x, 2x and 4x sizes for the reward.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomRewardRedemption">
+            <summary>
+            Channel Points Custom Reward Redemption subscription type model
+            <para>!! The same for all channel points redemption subscription types !!</para>
+            <para>Description:</para>
+            <para>A viewer has redeemed a custom channel points reward on the specified channel.</para>
+            <para>A redemption of a channel points custom reward has been updated for the specified channel.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomRewardRedemption.Id">
+            <summary>
+            The redemption identifier.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomRewardRedemption.BroadcasterUserId">
+            <summary>
+            The requested broadcaster ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomRewardRedemption.BroadcasterUserName">
+            <summary>
+            The requested broadcaster display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomRewardRedemption.BroadcasterUserLogin">
+            <summary>
+            The requested broadcaster login.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomRewardRedemption.UserId">
+            <summary>
+            User ID of the user that redeemed the reward.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomRewardRedemption.UserName">
+            <summary>
+            Display name of the user that redeemed the reward.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomRewardRedemption.UserLogin">
+            <summary>
+            Login of the user that redeemed the reward.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomRewardRedemption.UserInput">
+            <summary>
+            The user input provided. Empty string if not provided.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomRewardRedemption.Status">
+            <summary>
+            Status of the redemption. Possible values are unknown, unfulfilled, fulfilled, and canceled.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomRewardRedemption.Reward">
+            <summary>
+            Basic information about the reward that was redeemed, at the time it was redeemed.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPointsCustomRewardRedemption.RedeemedAt">
+            <summary>
+            RFC3339 timestamp of when the reward was redeemed.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPollBegin">
+            <summary>
+            Channel Poll Begin subscription type model
+            <para>Description:</para>
+            <para>A poll started on a specified channel.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPollBegin.EndsAt">
+            <summary>
+            The time the poll will end.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPollEnd">
+            <summary>
+            Channel Poll End subscription type model
+            <para>Description:</para>
+            <para>A poll ended on a specified channel.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPollEnd.Status">
+            <summary>
+            The status of the poll. Valid values are completed, archived, and terminated.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPollEnd.EndedAt">
+            <summary>
+            The time the poll ended.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPollProgress">
+            <summary>
+            Channel Poll Progress subscription type model
+            <para>Description:</para>
+            <para>Users respond to a poll on a specified channel.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPollProgress.EndsAt">
+            <summary>
+            The time the poll will end.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPredictionBegin">
+            <summary>
+            Channel Prediction Begin subscription type model
+            <para>Description:</para>
+            <para>A Prediction started on a specified channel.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPredictionBegin.LocksAt">
+            <summary>
+            The time the Channel Points Prediction will automatically lock.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPredictionEnd">
+            <summary>
+            Channel Prediction End subscription type model
+            <para>Description:</para>
+            <para>A Prediction ended on a specified channel.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPredictionEnd.Status">
+            <summary>
+            The status of the Channel Points Prediction. Valid values are resolved and canceled.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPredictionEnd.EndedAt">
+            <summary>
+            The time the Channel Points Prediction ended.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPredictionLock">
+            <summary>
+            Channel Prediction Lock subscription type model
+            <para>Description:</para>
+            <para>A Prediction was locked on a specified channel.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPredictionLock.LockedAt">
+            <summary>
+            The time the Channel Points Prediction was locked.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPredictionProgress">
+            <summary>
+            Channel Prediction Progress subscription type model
+            <para>Description:</para>
+            <para>Users participated in a Prediction on a specified channel.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelPredictionProgress.LocksAt">
+            <summary>
+            The time the Channel Points Prediction will automatically lock.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelRaid">
+            <summary>
+            Channel Raid subscription type model
+            <para>Description:</para>
+            <para>A broadcaster raids another broadcaster’s channel.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelRaid.FromBroadcasterUserId">
+            <summary>
+            The broadcaster ID that created the raid.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelRaid.FromBroadcasterUserName">
+            <summary>
+            The broadcaster display name that created the raid.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelRaid.FromBroadcasterUserLogin">
+            <summary>
+            The broadcaster login that created the raid.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelRaid.ToBroadcasterUserId">
+            <summary>
+            The broadcaster ID that received the raid.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelRaid.ToBroadcasterUserName">
+            <summary>
+            The broadcaster display name that received the raid.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelRaid.ToBroadcasterUserLogin">
+            <summary>
+            The broadcaster login that received the raid.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelRaid.Viewers">
+            <summary>
+            The number of viewers in the raid.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscribe">
+            <summary>
+            Channel Subscribe subscription type model
+            <para>Description:</para>
+            <para>A notification when a specified channel receives a subscriber. This does not include resubscribes.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscribe.UserId">
+            <summary>
+            The user ID for the user who subscribed to the specified channel.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscribe.UserName">
+            <summary>
+            The user display name for the user who subscribed to the specified channel.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscribe.UserLogin">
+            <summary>
+            The user login for the user who subscribed to the specified channel.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscribe.BroadcasterUserId">
+            <summary>
+            The requested broadcaster ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscribe.BroadcasterUserName">
+            <summary>
+            The requested broadcaster display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscribe.BroadcasterUserLogin">
+            <summary>
+            The requested broadcaster login.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscribe.Tier">
+            <summary>
+            The tier of the subscription. Valid values are 1000, 2000, and 3000.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscribe.IsGift">
+            <summary>
+            Whether the subscription is a gift.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionEnd">
+            <summary>
+            Channel Subscription End subscription type model
+            <para>Description:</para>
+            <para>A notification when a subscription to the specified channel ends.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionEnd.UserId">
+            <summary>
+            The user ID for the user whose subscription ended.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionEnd.UserLogin">
+            <summary>
+            The user login for the user whose subscription ended.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionEnd.UserName">
+            <summary>
+            The user display name for the user whose subscription ended.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionEnd.BroadcasterUserId">
+            <summary>
+            The broadcaster user ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionEnd.BroadcasterUserLogin">
+            <summary>
+            The broadcaster login.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionEnd.BroadcasterUserName">
+            <summary>
+            The broadcaster display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionEnd.Tier">
+            <summary>
+            The tier of the subscription that ended. Valid values are 1000, 2000, and 3000.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionEnd.IsGift">
+            <summary>
+            Whether the subscription was a gift.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionGift">
+            <summary>
+            Channel Subscription Gift subscription type model
+            <para>Description:</para>
+            <para>A notification when a viewer gives a gift subscription to one or more users in the specified channel.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionGift.UserId">
+            <summary>
+            The user ID of the user who sent the subscription gift. Set to null if it was an anonymous subscription gift.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionGift.UserName">
+            <summary>
+            The user display name of the user who sent the gift. Set to null if it was an anonymous subscription gift.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionGift.UserLogin">
+            <summary>
+            The user login of the user who sent the gift. Set to null if it was an anonymous subscription gift.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionGift.BroadcasterUserId">
+            <summary>
+            The broadcaster user ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionGift.BroadcasterUserName">
+            <summary>
+            The broadcaster display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionGift.BroadcasterUserLogin">
+            <summary>
+            The broadcaster login.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionGift.Total">
+            <summary>
+            The number of subscriptions in the subscription gift.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionGift.Tier">
+            <summary>
+            The tier of subscriptions in the subscription gift. Valid values are 1000, 2000, and 3000.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionGift.CumulativeTotal">
+            <summary>
+            The number of subscriptions gifted by this user in the channel. This value is null for anonymous gifts or if the gifter has opted out of sharing this information.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionGift.IsAnonymous">
+            <summary>
+            Whether the subscription gift was anonymous.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionMessage">
+            <summary>
+            Channel Subscription Message subscription type model
+            <para>Description:</para>
+            <para>A notification when a user sends a resubscription chat message in a specific channel.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionMessage.UserId">
+            <summary>
+            The user ID of the user who sent a resubscription chat message.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionMessage.UserName">
+            <summary>
+            The user display name of the user who a resubscription chat message.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionMessage.UserLogin">
+            <summary>
+            The user login of the user who sent a resubscription chat message.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionMessage.BroadcasterUserId">
+            <summary>
+            The broadcaster user ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionMessage.BroadcasterUserName">
+            <summary>
+            The broadcaster display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionMessage.BroadcasterUserLogin">
+            <summary>
+            The broadcaster login.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionMessage.Tier">
+            <summary>
+            The tier of the user's subscription. Valid values are 1000, 2000, and 3000.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionMessage.Message">
+            <summary>
+            An object that contains the resubscription message and emote information needed to recreate the message.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionMessage.CumulativeTotal">
+            <summary>
+            The total number of months the user has been subscribed to the channel.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionMessage.StreakMonths">
+            <summary>
+            The number of consecutive months the user’s current subscription has been active. This value is null if the user has opted out of sharing this information.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelSubscriptionMessage.DurationMonths">
+            <summary>
+            The month duration of the subscription.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelUnban">
+            <summary>
+            Channel Unban subscription type model
+            <para>Description:</para>
+            <para>A viewer is unbanned from the specified channel.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelUnban.UserId">
+            <summary>
+            The user id for the user who was unbanned on the specified channel.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelUnban.UserName">
+            <summary>
+            The user display name for the user who was unbanned on the specified channel.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelUnban.UserLogin">
+            <summary>
+            The user login for the user who was unbanned on the specified channel.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelUnban.BroadcasterUserId">
+            <summary>
+            The requested broadcaster ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelUnban.BroadcasterUserName">
+            <summary>
+            The requested broadcaster display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelUnban.BroadcasterUserLogin">
+            <summary>
+            The requested broadcaster login.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelUnban.ModeratorUserId">
+            <summary>
+            The user ID of the issuer of the unban.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelUnban.ModeratorUserName">
+            <summary>
+            The display name of the issuer of the unban.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelUnban.ModeratorUserLogin">
+            <summary>
+            The user login of the issuer of the unban.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelUpdate">
+            <summary>
+            Channel Update subscription type model
+            <para>Description:</para>
+            <para>A broadcaster updates their channel properties e.g., category, title, mature flag, broadcast, or language.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelUpdate.BroadcasterUserId">
+            <summary>
+            The broadcaster’s user ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelUpdate.BroadcasterUserName">
+            <summary>
+            The broadcaster’s user display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelUpdate.BroadcasterUserLogin">
+            <summary>
+            The broadcaster’s user login.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelUpdate.Title">
+            <summary>
+            The channel’s stream title.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelUpdate.Language">
+            <summary>
+            The channel’s broadcast language.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelUpdate.CategoryId">
+            <summary>
+            The channel’s category ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelUpdate.CategoryName">
+            <summary>
+            The channel’s category name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.ChannelUpdate.IsMature">
+            <summary>
+            A boolean identifying whether the channel is flagged as mature.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.HypeTrainBegin">
+            <summary>
+            HypeTrain Begin subscription type model
+            <para>Description:</para>
+            <para>A Hype Train begins on the specified channel.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.HypeTrainBegin.Progress">
+            <summary>
+            The number of points contributed to the Hype Train at the current level.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.HypeTrainBegin.Goal">
+            <summary>
+            The number of points required to reach the next level.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.HypeTrainBegin.LastContribution">
+            <summary>
+            The most recent contribution.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.HypeTrainBegin.ExpiresAt">
+            <summary>
+            The time when the Hype Train expires. The expiration is extended when the Hype Train reaches a new level.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.HypeTrainEnd">
+            <summary>
+            HypeTrain End subscription type model
+            <para>Description:</para>
+            <para>A Hype Train ends on the specified channel.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.HypeTrainEnd.CooldownEndsAt">
+            <summary>
+            The time when the Hype Train cooldown ends so that the next Hype Train can start.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.HypeTrainEnd.EndedAt">
+            <summary>
+            The time when the Hype Train ended.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.HypeTrainProgress">
+            <summary>
+            HypeTrain Progress subscription type model
+            <para>Description:</para>
+            <para>A Hype Train makes progress on the specified channel.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.HypeTrainProgress.Progress">
+            <summary>
+            The number of points contributed to the Hype Train at the current level.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.HypeTrainProgress.Goal">
+            <summary>
+            The number of points required to reach the next level.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.HypeTrainProgress.LastContribution">
+            <summary>
+            The most recent contribution.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Channel.HypeTrainProgress.ExpiresAt">
+            <summary>
+            The time when the Hype Train expires. The expiration is extended when the Hype Train reaches a new level.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Drop.DropEntitlementGrant">
+            <summary>
+            Drop Entitlement Grant subscription type model
+            <para>Description:</para>
+            <para>An entitlement for a Drop is granted to a user.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Drop.DropEntitlementGrant.OrganizationId">
+            <summary>
+            The ID of the organization that owns the game that has Drops enabled.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Drop.DropEntitlementGrant.CategoryId">
+            <summary>
+            Twitch category ID of the game that was being played when this benefit was entitled.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Drop.DropEntitlementGrant.CategoryName">
+            <summary>
+            Twitch category Name of the game that was being played when this benefit was entitled.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Drop.DropEntitlementGrant.CampaignId">
+            <summary>
+            The campaign this entitlement is associated with.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Drop.DropEntitlementGrant.UserId">
+            <summary>
+            Twitch user ID of the user who was granted the entitlement.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Drop.DropEntitlementGrant.UserName">
+            <summary>
+            The user display name of the user who was granted the entitlement.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Drop.DropEntitlementGrant.UserLogin">
+            <summary>
+            The user login of the user who was granted the entitlement.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Drop.DropEntitlementGrant.EntitlementId">
+            <summary>
+            Unique identifier of the entitlement. Use this to de-duplicate entitlements.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Drop.DropEntitlementGrant.BenefitId">
+            <summary>
+            Identifier of the Benefit.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Drop.DropEntitlementGrant.CreatedAt">
+            <summary>
+            UTC timestamp in ISO format when this entitlement was granted on Twitch.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Extension.ExtensionBitsTransactionCreate">
+            <summary>
+            Extension Bits Transaction Create subscription type model
+            <para>Description:</para>
+            <para>A Bits transaction occurred for a specified Twitch Extension.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Extension.ExtensionBitsTransactionCreate.Id">
+            <summary>
+            Transaction ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Extension.ExtensionBitsTransactionCreate.ExtensionClientId">
+            <summary>
+            Client ID of the extension.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Extension.ExtensionBitsTransactionCreate.BroadcasterUserId">
+            <summary>
+            The transaction's broadcaster ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Extension.ExtensionBitsTransactionCreate.BroadcasterUserLogin">
+            <summary>
+            The transaction's broadcaster login.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Extension.ExtensionBitsTransactionCreate.BroadcasterUserName">
+            <summary>
+            The transaction's broadcaster display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Extension.ExtensionBitsTransactionCreate.UserId">
+            <summary>
+            The transaction's user ID.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Extension.ExtensionBitsTransactionCreate.UserLogin">
+            <summary>
+            The transaction's user login.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Extension.ExtensionBitsTransactionCreate.UserName">
+            <summary>
+            The transaction's user display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Extension.ExtensionBitsTransactionCreate.Product">
+            <summary>
+            Additional extension product information.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Stream.StreamOffline">
+            <summary>
+            Stream Offline subscription type model
+            <para>Description:</para>
+            <para>The specified broadcaster stops a stream.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Stream.StreamOffline.BroadcasterUserId">
+            <summary>
+            The broadcaster's user id.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Stream.StreamOffline.BroadcasterUserName">
+            <summary>
+            The broadcaster's user display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Stream.StreamOffline.BroadcasterUserLogin">
+            <summary>
+            The broadcaster's user login.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.Stream.StreamOnline">
+            <summary>
+            Stream Online subscription type model
+            <para>Description:</para>
+            <para>The specified broadcaster starts a stream.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Stream.StreamOnline.Id">
+            <summary>
+            The id of the stream.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Stream.StreamOnline.BroadcasterUserId">
+            <summary>
+            The broadcaster's user id.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Stream.StreamOnline.BroadcasterUserName">
+            <summary>
+            The broadcaster's user display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Stream.StreamOnline.BroadcasterUserLogin">
+            <summary>
+            The broadcaster's user login.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Stream.StreamOnline.Type">
+            <summary>
+            The stream type. Valid values are: live, playlist, watch_party, premiere, rerun
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.Stream.StreamOnline.StartedAt">
+            <summary>
+            The timestamp at which the stream went online at.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.User.UserAuthorizationGrant">
+            <summary>
+            User Authorization Grant subscription type model
+            <para>Description:</para>
+            <para>A user’s authorization has been granted to your client id.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.User.UserAuthorizationGrant.ClientId">
+            <summary>
+            The client_id of the application that was granted user access.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.User.UserAuthorizationGrant.UserId">
+            <summary>
+            The user id for the user who has granted authorization for your client id.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.User.UserAuthorizationGrant.UserName">
+            <summary>
+            The user display name for the user who has granted authorization for your client id.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.User.UserAuthorizationGrant.UserLogin">
+            <summary>
+            The user login for the user who has granted authorization for your client id.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.User.UserAuthorizationRevoke">
+            <summary>
+            User Authorization Revoke subscription type model
+            <para>Description:</para>
+            <para>A user’s authorization has been revoked for your client id.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.User.UserAuthorizationRevoke.ClientId">
+            <summary>
+            The client_id of the application with revoked user access.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.User.UserAuthorizationRevoke.UserId">
+            <summary>
+            The user id for the user who has revoked authorization for your client id.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.User.UserAuthorizationRevoke.UserName">
+            <summary>
+            The user display name for the user who has revoked authorization for your client id. This is null if the user no longer exists.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.User.UserAuthorizationRevoke.UserLogin">
+            <summary>
+            The user login for the user who has revoked authorization for your client id. This is null if the user no longer exists.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.EventSub.Core.SubscriptionTypes.User.UserUpdate">
+            <summary>
+            User Update subscription type model
+            <para>Description:</para>
+            <para>A user has updated their account.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.User.UserUpdate.UserId">
+            <summary>
+            The user’s user id.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.User.UserUpdate.UserName">
+            <summary>
+            The user's user display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.User.UserUpdate.UserLogin">
+            <summary>
+            The user's user login.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.User.UserUpdate.Email">
+            <summary>
+            The user’s email address. The event includes the user’s email address only if the app used to request this event type includes the user:read:email scope for the user; otherwise, the field is set to an empty string. 
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.User.UserUpdate.EmailVerified">
+            <summary>
+            <para>A Boolean value that determines whether Twitch has verified the user’s email address. Is true if Twitch has verified the email address; otherwise, false.</para>
+            <para>NOTE: Ignore this field if the email field contains an empty string.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.EventSub.Core.SubscriptionTypes.User.UserUpdate.Description">
+            <summary>
+            The user's description 
+            </summary>
+        </member>
+    </members>
+</doc>

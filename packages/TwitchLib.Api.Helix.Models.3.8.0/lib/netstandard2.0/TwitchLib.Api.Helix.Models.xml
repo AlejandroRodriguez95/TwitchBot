@@ -1,0 +1,592 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TwitchLib.Api.Helix.Models</name>
+    </assembly>
+    <members>
+        <member name="P:TwitchLib.Api.Helix.Models.Channels.GetChannelVIPs.ChannelVIPsResponseModel.UserId">
+            <summary>
+            An ID that uniquely identifies the VIP user.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Channels.GetChannelVIPs.ChannelVIPsResponseModel.UserName">
+            <summary>
+            The user’s display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Channels.GetChannelVIPs.ChannelVIPsResponseModel.UserLogin">
+            <summary>
+            The user’s login name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Channels.GetChannelVIPs.GetChannelVIPsResponse.Data">
+            <summary>
+            The list of VIPs. The list is empty if the channel doesn’t have VIP users. The list does not include the broadcaster.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Channels.GetChannelVIPs.GetChannelVIPsResponse.Pagination">
+            <summary>
+            Contains the information used to page through the list of results.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Charity.GetCharityCampaign.Amount.Value">
+            <summary>
+            The monetary amount. 
+            The amount is specified in the currency’s minor unit. 
+            For example, the minor units for USD is cents, so if the amount is $5.50 USD, value is set to 550.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Charity.GetCharityCampaign.Amount.DecimalPlaces">
+            <summary>
+            The number of decimal places used by the currency. 
+            For example, USD uses two decimal places. 
+            Use this number to translate value from minor units to major units by using the formula: value / 10^decimal_places
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Charity.GetCharityCampaign.Amount.Currency">
+            <summary>
+            The ISO-4217 three-letter currency code that identifies the type of currency in value.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Charity.GetCharityCampaign.CharityCampaignResponseModel.Id">
+            <summary>
+            An ID that uniquely identifies the charity campaign.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Charity.GetCharityCampaign.CharityCampaignResponseModel.BroadcasterId">
+            <summary>
+            An ID that uniquely identifies the broadcaster that’s running the campaign.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Charity.GetCharityCampaign.CharityCampaignResponseModel.BroadcasterLogin">
+            <summary>
+            The broadcaster’s login name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Charity.GetCharityCampaign.CharityCampaignResponseModel.BroadcasterName">
+            <summary>
+            The broadcaster’s display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Charity.GetCharityCampaign.CharityCampaignResponseModel.CharityName">
+            <summary>
+            The charity’s name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Charity.GetCharityCampaign.CharityCampaignResponseModel.CharityDescription">
+            <summary>
+            A description of the charity.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Charity.GetCharityCampaign.CharityCampaignResponseModel.CharityLogo">
+            <summary>
+            A URL to an image of the charity’s logo. The image’s type is PNG and its size is 100px X 100px.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Charity.GetCharityCampaign.CharityCampaignResponseModel.CharityWebsite">
+            <summary>
+            A URL to the charity’s website.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Charity.GetCharityCampaign.CharityCampaignResponseModel.CurrentAmount">
+            <summary>
+            An object that contains the current amount of donations that the campaign has received.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Charity.GetCharityCampaign.CharityCampaignResponseModel.TargetAmount">
+            <summary>
+            An object that contains the amount of money that the campaign is trying to raise. 
+            This field may be null if the broadcaster has not defined a target goal.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Charity.GetCharityCampaign.GetCharityCampaignResponse.Data">
+            <summary>
+            A list that contains the charity campaign that the broadcaster is currently running. 
+            The array is empty if the broadcaster is not running a charity campaign; 
+            The campaign information is no longer available as soon as the campaign ends.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.Emotes.ChannelEmote.Tier">
+            <summary>
+            The subscriber tier at which the emote is unlocked.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.Emotes.ChannelEmote.EmoteType">
+            <summary>
+            The type of emote.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.Emotes.ChannelEmote.EmoteSetId">
+            <summary>
+            An ID that identifies the emote set that the emote belongs to.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.Emotes.Emote.Id">
+            <summary>
+            An ID that identifies the emote.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.Emotes.Emote.Name">
+            <summary>
+            The name of the emote. This is the name that viewers type in the chat window to get the emote to appear.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.Emotes.Emote.Images">
+            <summary>
+            Contains the image URLs for the emote.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.Emotes.Emote.Format">
+            <summary>
+            The formats that the emote is available in.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.Emotes.Emote.Scale">
+            <summary>
+            The sizes that the emote is available in.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.Emotes.Emote.ThemeMode">
+            <summary>
+            The background themes that the emote is available in.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.Emotes.EmoteImages.Url1X">
+            <summary>
+            A URL to the small version (28px x 28px) of the emote.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.Emotes.EmoteImages.Url2X">
+            <summary>
+            A URL to the medium version (56px x 56px) of the emote.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.Emotes.EmoteImages.Url4X">
+            <summary>
+            A URL to the large version (112px x 112px) of the emote.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.Emotes.EmoteSet.EmoteType">
+            <summary>
+            The type of emote. 
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.Emotes.EmoteSet.EmoteSetId">
+            <summary>
+            An ID that identifies the emote set that the emote belongs to.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.Emotes.EmoteSet.OwnerId">
+            <summary>
+            The ID of the broadcaster who owns the emote.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.GetChatters.Chatter.UserLogin">
+            <summary>
+            The login name of a user that’s connected to the broadcaster’s chat room.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.GetChatters.GetChattersResponse.Data">
+            <summary>
+            List of login names that are connected to the broadcaster’s chat room.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.GetChatters.GetChattersResponse.Pagination">
+            <summary>
+            Contains the information used to page through the list of results. The object is empty if there are no more pages left to page through.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.GetChatters.GetChattersResponse.Total">
+            <summary>
+            The total number of users that are connected to the broadcaster’s chat room.
+            <para>As you page through the list, the number of users may change as users join and leave the chat room.</para>
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.GetUserChatColor.GetUserChatColorResponse.Data">
+            <summary>
+            The list of users and the color code that’s used for their name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.GetUserChatColor.UserChatColorResponseModel.UserId">
+            <summary>
+            The ID of the user.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.GetUserChatColor.UserChatColorResponseModel.UserLogin">
+            <summary>
+            The user’s login name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.GetUserChatColor.UserChatColorResponseModel.UserName">
+            <summary>
+            The user’s display name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Chat.GetUserChatColor.UserChatColorResponseModel.Color">
+            <summary>
+            The Hex color code that the user uses in chat for their name. If the user hasn’t specified a color in their settings, the string is empty.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.EventSub.EventSubSubscription.Id">
+            <summary>
+            An ID that identifies the subscription.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.EventSub.EventSubSubscription.Status">
+            <summary>
+            The subscription’s status. Possible values: enable, webhook_callback_verification_pending, webhook_callback_verification_failed, notification_failures_exceeded, authorization_revoked, user_removed
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.EventSub.EventSubSubscription.Type">
+            <summary>
+            The subscription’s type.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.EventSub.EventSubSubscription.Version">
+            <summary>
+            The version of the subscription type.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.EventSub.EventSubSubscription.Condition">
+            <summary>
+            The subscription’s parameter values.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.EventSub.EventSubSubscription.CreatedAt">
+            <summary>
+            The RFC 3339 timestamp indicating when the subscription was created.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.EventSub.EventSubSubscription.Transport">
+            <summary>
+            The transport details used to send you notifications.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.EventSub.EventSubSubscription.Cost">
+            <summary>
+            The amount that the subscription counts against your limit.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.EventSub.GetEventSubSubscriptionsResponse.Total">
+            <summary>
+            The total number of subscriptions you’ve created.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.EventSub.GetEventSubSubscriptionsResponse.Subscriptions">
+            <summary>
+            An array of subscription objects. The list is empty if you don’t have any subscriptions.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.EventSub.GetEventSubSubscriptionsResponse.TotalCost">
+            <summary>
+            The sum of all of your subscription costs.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.EventSub.GetEventSubSubscriptionsResponse.MaxTotalCost">
+            <summary>
+            The maximum total cost that you’re allowed to incur for all subscriptions you create.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.EventSub.GetEventSubSubscriptionsResponse.Pagination">
+            <summary>
+            An object that contains the cursor used to get the next page of subscriptions.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.BanUser.BannedUser.BroadcasterId">
+            <summary>
+            The broadcaster whose chat room the user was banned from chatting in.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.BanUser.BannedUser.CreatedAt">
+            <summary>
+            The UTC date and time (in RFC3999 format) when the ban was created.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.BanUser.BannedUser.ModeratorId">
+            <summary>
+            The moderator that banned or put the user in the timeout.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.BanUser.BannedUser.UserId">
+            <summary>
+            The user that was banned or was put in a timeout.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.BanUser.BannedUser.EndTime">
+            <summary>
+            The UTC date and time (in RFC3339 format) that the timeout will end. Is null if the user was banned instead of put in a timeout.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.CheckAutoModStatus.AutoModResult.MsgId">
+            <summary>
+            The msg_id passed in the body of the POST message. Maps each message to its status.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.CheckAutoModStatus.AutoModResult.IsPermitted">
+            <summary>
+            Indicates if this message meets AutoMod requirements.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.CheckAutoModStatus.Message.MsgId">
+            <summary>
+            Developer-generated identifier for mapping messages to results.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.CheckAutoModStatus.Message.MsgText">
+            <summary>
+            Message text.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.GetBannedUsers.BannedUserEvent.UserId">
+            <summary>
+            	User ID of the banned user.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.GetBannedUsers.BannedUserEvent.UserLogin">
+            <summary>
+            Login of the banned user.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.GetBannedUsers.BannedUserEvent.UserName">
+            <summary>
+            Display name of the banned user.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.GetBannedUsers.BannedUserEvent.ExpiresAt">
+            <summary>
+            The UTC date and time (in RFC3999 format) when the timeout expires, or an empty string if the user is permanently banned.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.GetBannedUsers.BannedUserEvent.CreatedAt">
+            <summary>
+            The UTC date and time (in RFC3999 format) when the ban was created.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.GetBannedUsers.BannedUserEvent.Reason">
+            <summary>
+            The reason for the ban if provided by the moderator.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.GetBannedUsers.BannedUserEvent.ModeratorId">
+            <summary>
+            User ID of the moderator who initiated the ban.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.GetBannedUsers.BannedUserEvent.ModeratorLogin">
+            <summary>
+            	Login of the moderator who initiated the ban.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.GetBannedUsers.BannedUserEvent.ModeratorName">
+            <summary>
+            Display name of the moderator who initiated the ban.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.GetBannedUsers.GetBannedUsersResponse.Data">
+            <summary>
+            Banned and timed-out users for a channel.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Moderation.GetBannedUsers.GetBannedUsersResponse.Pagination">
+            <summary>
+            A cursor value, to be used in a subsequent request to specify the starting point of the next set of results.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Polls.CreatePoll.CreatePollRequest.BitsVotingEnabled">
+            <summary> Removed - Ignored if included with call. Defaults to false</summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Polls.CreatePoll.CreatePollRequest.BitsPerVote">
+            <summary> Removed - Ignored if included with call. Defaults to 0</summary>
+        </member>
+        <member name="T:TwitchLib.Api.Helix.Models.Soundtrack.Album">
+            <summary>
+            The album that includes the track.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.Album.Id">
+            <summary>
+            The album’s ASIN (Amazon Standard Identification Number).
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.Album.Name">
+            <summary>
+            The album’s name. If the album contains explicit content, the name will contain [Explicit] in the string. For example, Let It Die [Explicit].
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.Album.ImageUrl">
+            <summary>
+            A URL to the album’s cover art.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.Api.Helix.Models.Soundtrack.Artist">
+            <summary>
+            The artists included on the track.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.Artist.Id">
+            <summary>
+            The artist’s ASIN (Amazon Standard Identification Number).
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.Artist.Name">
+            <summary>
+            The artist’s name. This can be the band’s name or the solo artist’s name.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.Artist.CreatorChannelId">
+            <summary>
+            The ID of the Twitch user that created the track. Is empty if a Twitch user didn’t create the track.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.Api.Helix.Models.Soundtrack.GetCurrentTrack.CurrentTrack">
+            <summary>
+            Soundtrack track that the broadcaster is playing.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.GetCurrentTrack.CurrentTrack.Track">
+            <summary>
+            The track that’s currently playing.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.GetCurrentTrack.CurrentTrack.Source">
+            <summary>
+            The source of the track that’s currently playing. For example, a playlist or station.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.Api.Helix.Models.Soundtrack.GetCurrentTrack.GetCurrentTrackResponse">
+            <summary>
+            Returns the Soundtrack track that the broadcaster is playing.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.GetCurrentTrack.GetCurrentTrackResponse.Data">
+            <summary>
+            A list that contains the Soundtrack track that the broadcaster is playing.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.Api.Helix.Models.Soundtrack.GetPlaylist.GetPlaylistResponse">
+            <summary>
+            Returned tracks of a Soundtrack playlist.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.GetPlaylist.GetPlaylistResponse.Data">
+            <summary>
+            The list of tracks in the playlist.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.GetPlaylist.GetPlaylistResponse.Pagination">
+            <summary>
+            Contains the information used to page through a list of tracks. The object is empty if there are no more tracks to page through.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.Api.Helix.Models.Soundtrack.GetPlaylists.GetPlaylistsResponse">
+            <summary>
+            Returns a list of Soundtrack playlists.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.GetPlaylists.GetPlaylistsResponse.Data">
+            <summary>
+            The list of Soundtrack playlists.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.GetPlaylists.GetPlaylistsResponse.Pagination">
+            <summary>
+            Contains the information used to page through a list of playlists. The object is empty if there are no more playlists to page through.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.Api.Helix.Models.Soundtrack.GetPlaylists.PlaylistMetadata">
+            <summary>
+            Soundtrack playlist.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.GetPlaylists.PlaylistMetadata.Title">
+            <summary>
+            The playlist’s title.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.GetPlaylists.PlaylistMetadata.Id">
+            <summary>
+            The playlist’s ASIN (Amazon Standard Identification Number).
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.GetPlaylists.PlaylistMetadata.ImageUrl">
+            <summary>
+            A URL to the playlist’s image art. Is empty if the playlist doesn’t include art.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.GetPlaylists.PlaylistMetadata.Description">
+            <summary>
+            A short description about the music that the playlist includes.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.Api.Helix.Models.Soundtrack.Source">
+            <summary>
+            The source of the track that’s currently playing. For example, a playlist or station.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.Source.Id">
+            <summary>
+            The playlist’s or station’s ASIN (Amazon Standard Identification Number).
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.Source.ContentType">
+            <summary>
+            The type of content that id maps to. Possible values are: PLAYLIST or STATION
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.Source.Title">
+            <summary>
+            The playlist’s or station’s title.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.Source.ImageUrl">
+            <summary>
+            A URL to the playlist’s or station’s image art.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.Source.SoundtrackUrl">
+            <summary>
+            A URL to the playlist on Soundtrack. The string is empty if content-type is STATION.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.Source.SpotifyUrl">
+            <summary>
+            A URL to the playlist on Spotify. The string is empty if content-type is STATION.
+            </summary>
+        </member>
+        <member name="T:TwitchLib.Api.Helix.Models.Soundtrack.Track">
+            <summary>
+            The track
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.Track.Artists">
+            <summary>
+            The artists included on the track.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.Track.Id">
+            <summary>
+            The track’s ASIN (Amazon Standard Identification Number).
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.Track.Duration">
+            <summary>
+            The duration of the track, in seconds.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.Track.Title">
+            <summary>
+            The track’s title. If the track contains explicit content, the title will contain [Explicit] in the string. For example, Let It Die [Explicit].
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.Track.Album">
+            <summary>
+            The album that includes the track.
+            </summary>
+        </member>
+        <member name="P:TwitchLib.Api.Helix.Models.Soundtrack.Track.ISRC">
+            <summary>
+            The track’s ISRC (International Standard Recording Code).
+            </summary>
+        </member>
+    </members>
+</doc>
